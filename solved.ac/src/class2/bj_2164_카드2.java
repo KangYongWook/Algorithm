@@ -1,7 +1,7 @@
 package class2;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class bj_2164_카드2 {
@@ -11,19 +11,23 @@ public class bj_2164_카드2 {
 		Scanner sc = new Scanner(System.in);
 		
 		int N = sc.nextInt();
-		int result = 0;
+		Queue<Integer> q = new LinkedList<Integer>();
 		
-		ArrayList<Integer> list = new ArrayList<Integer>();
+		
+		
 		
 		for (int i = 1; i <= N; i++) {
-			list.add(i);
+			q.add(i);
 		}
-		
-		while() {
+		int temp =0;
+		while(q.size() != 1) {
 			
+			q.poll();
+			temp = q.poll();
+			q.add(temp);
 		}
 		
 		
-		System.out.println(result);
+		System.out.println(q.poll());
 	}
 }
