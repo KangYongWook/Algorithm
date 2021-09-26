@@ -7,7 +7,7 @@ public class bj_1000_A¥ı«œ±‚B {
 		
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
-		int M = sc.nextInt();
+		int M = sc.nextInt();    
 		System.out.println(M+N);
 	}
-}      
+}     
