@@ -10,4 +10,4 @@ public class bj_1000_A¥ı«œ±‚B {
 		int M = sc.nextInt();
 		System.out.println(M+N);
 	}
-}
+}      
