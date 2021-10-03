@@ -23,7 +23,6 @@ public class bj_1018_체스판다시칠하기 {
 		startblack = new char[8];
 		startwhite = new char[8];
 		for (int i = 0; i < startwhite.length; i++) {
-
 			if(i%2 ==0) {
 				startblack[i]= 'B';
 				startwhite[i]= 'W';
@@ -77,7 +76,7 @@ public class bj_1018_체스판다시칠하기 {
 						cnt1++;
 					}
 				}
-
+				
 			}
 		}
 		if(cnt1>cnt2) {
