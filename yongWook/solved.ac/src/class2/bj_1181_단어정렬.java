@@ -11,7 +11,6 @@ public class bj_1181_단어정렬 {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		
 		int N = Integer.parseInt(br.readLine());
 		String arr[] = new String[N];
 		for (int i = 0; i < arr.length; i++) {

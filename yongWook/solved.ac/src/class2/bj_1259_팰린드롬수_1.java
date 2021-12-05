@@ -29,9 +29,10 @@ public class bj_1259_ÆÓ¸°µå·Ò¼ö_1 {
 			for (int i = 0; i < compareArr1.length; i++) {
 				if (compareArr[i].equals(compareArr1[i]))
 					continue;
-				else
+				else {
 					result = false;
-				break;
+					break;
+				}
 			}
 			System.out.println(result== true ? "yes"  : "no" );
 		}
