@@ -2,6 +2,8 @@ package class2;
 
 import java.util.Scanner;
 
+import jdk.jfr.Unsigned;
+
 public class bj_1535_¾È³ç {
 	public static void main(String[] args) {
 		
@@ -19,6 +21,8 @@ public class bj_1535_¾È³ç {
 		for (int i = 0; i < N; i++) {
 			point[i] = sc.nextInt();
 		}
+		Unsigned Integer = 1;
+		String html = """dasdsa""";
 		int index = 0;
 		while(true) {
 			
