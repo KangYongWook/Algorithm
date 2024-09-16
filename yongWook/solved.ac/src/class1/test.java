@@ -1,41 +1,34 @@
 package class1;
 
-import java.util.Scanner;
-
-public class test {	
+public class test {
+	String model;
+	String color;
+	int yyyy;
+	test(){
+		this.model = "½Â¿ëÂ÷";
+		this.color = "°ËÁ¤";
+		this.yyyy = 2020;
+		System.out.println("model : " + model);
+	}
+	test(String model, String color, int yyyy){
+		System.out.println("¿©±âÅÀ´Âµ¥?");
+		this.model = model;
+		this.color = color;
+		this.yyyy = yyyy;
+		System.out.println("model : " + model);
+	}
+	
 	
 	public static void main(String[] args) {
-		
-		Scanner sc = new Scanner(System.in);
-		
-		int t= sc.nextInt();
-		
-		
-		
-		for (int i = 0; i < t; i++) {
-			if(t== 0) break;
-			String in = sc.next();
-			char inArr[] = in.toCharArray();
-			int max = 0;
-			int min = Integer.MAX_VALUE;
-			for (int j = 0; j < in.length(); j++) {
-				if(max < inArr[j])
-					max = inArr[j]-'0';
-				if(min > inArr[j])
-					min = inArr[j]-'0';
-			} 
-			
-			for (int j = 0; j < inArr.length; j++) {
-				
-			}
-			System.out.println((int)max);
-			for (int j = 0; j < inArr.length; j++) {
-				System.out.print(inArr[j]);
-			}
-			
-		}
-		if(t==0) System.out.println("#1" + " " + "0" + " " + "0");
-		
-		
+		int yyyy=2020;
+		test_test c = new test_test("SUV", "Èò»ö", ++yyyy);
+		System.out.println(", year : "+ c.yyyy);
+		System.out.println(yyyy);
 	}
+	
+	
+
 }
+
+
+

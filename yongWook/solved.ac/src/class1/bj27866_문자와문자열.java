@@ -2,15 +2,12 @@ package class1;
 
 import java.util.Scanner;
 
-public class bj_1000_A더하기B {
+public class bj27866_문자와문자열 {
 	public static void main(String[] args) {
-		
 		Scanner sc = new Scanner(System.in);
-		int a = sc.nextInt();
-		int b = sc.nextInt();
 		
-		System.out.println(a+b);
+		String str = sc.next();
 		
-		
+		System.out.println(str.charAt(sc.nextInt()-1));
 	}
-}     
+}
