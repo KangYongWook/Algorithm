@@ -24,7 +24,7 @@ public class bj1978_소수찾기 {
 		}
 		if(number == 2) {
 			return true;
-		}
+		} 
 		
 		for (int j = 2; j <= Math.sqrt(number); j++) {
 			
