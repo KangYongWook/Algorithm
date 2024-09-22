@@ -8,11 +8,23 @@ public class bj2775_부녀회장이될테야 {
 		
 		int N = sc.nextInt();
 		
+		int floor = 0;
+		int ho = 0;
 		for (int i = 0; i < N; i++) {
-			int floor = sc.nextInt();
-			int ho = sc.nextInt();
-			
-			
+			floor = sc.nextInt();
+			ho = sc.nextInt();
+			int result = 0;
+			for (int j =  0; j < ho; j++) {
+				result += floor++;
+				
+			}
+			System.out.println(result);
 		}
+		
+		
+		
+		
+		
+		
 	}
 }
