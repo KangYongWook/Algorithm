@@ -2,5 +2,7 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="yongWook/solved.ac/src"/>
+	<classpathentry kind="src" path="dohun"/>
+	<classpathentry kind="src" path="jisu"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
