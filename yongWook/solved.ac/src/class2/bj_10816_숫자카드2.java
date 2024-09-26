@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
-asdsad
 public class bj_10816_숫자카드2 {
 	public static void main(String[] args) throws Exception {
 
