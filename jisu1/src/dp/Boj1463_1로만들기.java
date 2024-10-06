@@ -1,3 +1,5 @@
+package dp;
+
 import java.util.Scanner;
 
 public class Boj1463_1로만들기 {
