@@ -1,23 +1,16 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-/*
-        for (int i = 0; i < 6; i++) {
-            double ran = Math.random()*27;
-            int a = (int)ran;
-            System.out.println(ran);
-            System.out.println(a);
-        }
-*/
+        Scanner sc = new Scanner(System.in);
+        while (true){
+            int n = sc.nextInt();
+            if (n==0) break;
+            double sqrt = Math.sqrt(n);
+            System.out.println(sqrt);
+            System.out.println(sqrt%1>0);
+            System.out.println("--------");
 
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < 10; i++) {
-            int c = 'a'+(int)(Math.random()*26);
-            sb.append((char)c);
         }
-
-        System.out.println(sb);
-        System.out.println((int)'a');
-        System.out.println((int)'z');
-        System.out.println((int)'{');
     }
 }
