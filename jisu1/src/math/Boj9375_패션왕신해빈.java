@@ -40,7 +40,7 @@ public class Boj9375_패션왕신해빈 {
              */
             int total = 1;
             for (int c : closet.values()){
-                total = total * (c+1); /*옷을 안입는 경우를 더하기*/
+                total = total * (c+1); /*옷을 안입는 경우를 +1 하기*/
             }
 
             /* 공집합인 경우의 수만 빼서 결과 도출*/
