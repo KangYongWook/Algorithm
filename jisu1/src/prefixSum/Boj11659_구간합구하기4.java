@@ -1,4 +1,4 @@
-    package prefix_sum;
+    package prefixSum;
 
     import java.io.BufferedReader;
     import java.io.IOException;

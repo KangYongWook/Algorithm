@@ -1,3 +1,5 @@
+package divideNconquer;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -19,16 +21,15 @@ public class Boj2630_색종이만들기 {
         }
 
         paper(0,0,n);
-        System.out.println(white+" "+blue);
+        System.out.println(white+"\n"+blue);
     }
 
-
     /**
-     * 1,2,3,4분면...
-     * 시작위치, N 사이즈
      *
+     * @param x 좌표시작
+     * @param y 좌표시작
+     * @param n 색종이 사이즈
      */
-
     private static void paper(int x,int y,int n) {
         int color = map[x][y];
         boolean divideFlag = false;
@@ -40,6 +41,11 @@ public class Boj2630_색종이만들기 {
                     paper(x,y+(n/2),n/2);
                     paper(x+(n/2),y,n/2);
                     paper(x+n/2,y+n/2,n/2);
+
+                    // 43번 라인의 재귀함수를 타면 완료된것.
+                    // 그 이후의 반복문을 돌지 않기 위해 i,j에 종료값을 넣음
+                    i = x+n;
+                    j = y+n;
                 }
             }
         }
@@ -54,3 +60,15 @@ public class Boj2630_색종이만들기 {
         }
     }
 }
+
+/*
+8
+1 1 0 0 0 0 1 1
+1 1 0 0 0 0 1 1
+0 0 0 0 1 1 0 0
+0 0 0 0 1 1 0 0
+1 0 0 0 1 1 1 1
+0 1 0 0 1 1 1 1
+0 0 1 1 1 1 1 1
+0 0 1 1 1 1 1 1
+ */
