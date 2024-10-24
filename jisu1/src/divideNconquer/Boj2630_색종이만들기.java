@@ -33,6 +33,7 @@ public class Boj2630_색종이만들기 {
     private static void paper(int x,int y,int n) {
         int color = map[x][y];
         boolean divideFlag = false;
+
         for (int i = x; i < x+n; i++) {
             for (int j = y; j < y+n; j++) {
                 if (color != map[i][j]){
@@ -42,7 +43,7 @@ public class Boj2630_색종이만들기 {
                     paper(x+(n/2),y,n/2);
                     paper(x+n/2,y+n/2,n/2);
 
-                    // 43번 라인의 재귀함수를 타면 완료된것.
+                    // 43번 라인의 재귀함수까지 타면 완료된것.
                     // 그 이후의 반복문을 돌지 않기 위해 i,j에 종료값을 넣음
                     i = x+n;
                     j = y+n;
