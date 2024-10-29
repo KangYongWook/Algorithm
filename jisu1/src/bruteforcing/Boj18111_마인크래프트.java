@@ -35,7 +35,7 @@ public class Boj18111_마인크래프트 {
             if (time == -1) {
                 break;
             }
-            if (answerTime>=time) {
+            if (answerTime >= time) {
                 answerTime = time;
                 height = Math.max(height,i);
             }
@@ -48,6 +48,7 @@ public class Boj18111_마인크래프트 {
     public static int makeFlat(int height) {
         int time = 0;
         int remainBlock = b;
+
         for (int i = 0; i < n ;i++) {
             for (int j = 0; j < m; j++) {
                 int currBlocks = map[i][j];

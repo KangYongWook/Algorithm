@@ -20,7 +20,8 @@ public class Boj18870_좌표압축 {
             seq[i] = Integer.parseInt(st.nextToken());
             set.add(seq[i]);
         }
-
+        // 0 1 2 3
+        // -10 -9
         HashMap<Integer, Integer> map = new HashMap<>();
         int idx = 0;
         for (int s : set) {
