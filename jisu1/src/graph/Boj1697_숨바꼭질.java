@@ -34,7 +34,7 @@ public class Boj1697_숨바꼭질 {
 
             if (p.x*2<=100000 && !visited[p.x*2]) {
                 que.add(new Pos(p.x * 2, p.step + 1));
-                visited[p.x*1] = true;
+                visited[p.x*2] = true;
             }
         }
 
