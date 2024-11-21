@@ -12,6 +12,6 @@ public class testsst {
 		System.out.println(map.get("1"));
 		
 		
-		
+		System.out.println(0%2);
 	}
 }

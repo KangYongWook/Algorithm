@@ -16,6 +16,7 @@ public class bj1931_회의실배정 {
 		
 		int cabinet[][] = new int[t][2];
 		
+		//입력
 		StringTokenizer st;
 		for (int i = 0; i < t; i++) {
 			st = new StringTokenizer(br.readLine());
@@ -24,11 +25,11 @@ public class bj1931_회의실배정 {
 			}
 		}
 		
-		//첫번째 숫자 두번째숫자 정렬
+		//두번쨰 숫자부터 정렬
 		Arrays.sort(cabinet, new Comparator<int[]>() {
 			@Override
 			public int compare(int[] o1, int[] o2) {
-				return o1[0]!=o2[0] ? o1[0]-o2[0] : o1[1]-o2[1];
+				return o1[1]!=o2[1] ? o1[1]-o2[1] : o1[0]-o2[0];
 			}
 		});
 		
