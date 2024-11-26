@@ -37,6 +37,7 @@ public class Boj1074_Z {
 
         } else {
             // 누적된 방문 값에서 재귀를 탄 사분면 값을 더한다
+            visit+=idx;
         }
     }
 }
