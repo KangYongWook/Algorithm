@@ -11,9 +11,9 @@ public class Boj5525_IOIOI {
         int m = Integer.parseInt(br.readLine());
         String s = br.readLine();
 
-        StringBuilder pn = new StringBuilder("I");
+        StringBuilder pattern = new StringBuilder("I");
         for (int i = 0; i < n; i++) {
-            pn.append("OI");
+            pattern.append("OI");
         }
 
 //        int start = 0;
@@ -32,8 +32,51 @@ public class Boj5525_IOIOI {
 //            end = start+len;
 //        }
 
-        int answer = kmp(s.toCharArray(), pn.toString().toCharArray());
+        int answer = kmp(s.toCharArray(), pattern.toString().toCharArray());
         System.out.println(answer);
+    }
+
+    public static int kmp(char[] str, char[] pattern){
+        // jump 가능한 개수 배열
+        int[] pi = getPi(pattern);
+        int answer = 0;
+
+        // 패턴의 시작 인덱스 위치
+        int j = 0;
+        // 문자열의 시작 인덱스 위치
+        for (int i = 0; i < str.length; i++) {
+
+            /*
+             앞전까지 일치했다가 불일치한 경우
+             */
+            while (j>0 && str[i] != pattern[j]) {
+                // jump할 수 있는 j 위치
+                j = pi[j-1];
+            }
+
+            /*
+             일치한 경우
+             예시) str = OOIOIOIOIIOII
+             i = 2 이고 j = 0 일때 일치
+             */
+            if (str[i] == pattern[j]){
+
+                if (j == pattern.length-1) {
+                    /*
+                    i = 6 , j = 4 , pi[4] = 2
+                    패턴의 길이만큼 문자열과 패턴이 동일! -> answer +1
+                    j = 2 동일 문자열개수 변경
+                     */
+                    answer++;
+                    j=pi[j];
+                } else {
+                    // 다음 패턴 비교하기 위해 +1
+                    j++;
+                }
+            }
+        }
+
+        return answer;
     }
 
     // 패턴 내부에서 jump 가능한 개수 찾는 메소드
@@ -43,11 +86,16 @@ public class Boj5525_IOIOI {
         int j = 0;
 
         /*
-        패턴 길이가 2인 것부터 for문을 돈다고 이해
-        i = 1 -> I"O"
-        i = 2 -> IO"I"
-        i = 3 -> IOI"O"
-        i = 4 -> IOIO"I"
+        패턴 길이가 2인 것 for문을 돈다고 이해
+        i = 0 -> I -> 0
+        i = 1 -> I"O" -> 0
+        i = 2 -> IO"I" -> 1
+        i = 3 -> IOI"O" -> 2
+        i = 4 -> IOIO"I" -> 3
+
+        IOII
+        pi = {0,0,1,0}
+        i = 5 ->
         */
         for (int i = 1; i < pi.length; i++) {
             /*
@@ -75,48 +123,5 @@ public class Boj5525_IOIOI {
         }
         // pi = {0,0,1,2,3}
         return pi;
-    }
-    
-    public static int kmp(char[] str, char[] pattern){
-        // jump 가능한 개수 배열
-        int[] pi = getPi(pattern);
-        int answer = 0;
-
-        // 패턴의 시작 인덱스 위치
-        int j = 0;
-        // 문자열의 시작 인덱스 위치
-        for (int i = 0; i < str.length; i++) {
-
-            /*
-             앞전까지 일치했다가 불일치한 경우
-             */
-            while (j>0 && str[i] != pattern[j]) {
-                // j 위치 jump
-                j = pi[j-1];
-            }
-
-            /*
-             일치한 경우
-             예시) str = OOIOIOIOIIOII
-             i = 2 이고 j = 0 일때 일치
-             */
-            if (str[i] == pattern[j]){
-
-                if (j == pattern.length-1) {
-                    /*
-                    i = 6 , j = 4 , pi[4] = 2
-                    패턴의 길이만큼 문자열과 패턴이 동일! -> answer +1
-                    j = 2 동일 문자열개수 변경
-                     */
-                    answer++;
-                    j=pi[j];
-                } else {
-                    // 다음 패턴 비교하기 위해 +1
-                    j++;
-                }
-            }
-        }
-
-        return answer;
     }
 }
