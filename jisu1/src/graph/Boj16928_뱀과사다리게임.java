@@ -1,4 +1,4 @@
-package week0;
+package graph;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,6 +27,7 @@ public class Boj16928_뱀과사다리게임 {
         boolean[] visited = new boolean[101];
         Queue<Info> game = new LinkedList<>();
         game.add(new Info(1,0));
+        visited[1] = true;
 
         while(!game.isEmpty()) {
             Info curr = game.poll();
