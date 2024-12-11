@@ -13,7 +13,6 @@ public class bj11286_절대값힙 {
 		
 		int t = Integer.parseInt(br.readLine());
 		PriorityQueue<int []> pq= new PriorityQueue<int[]>(new Comparator<int []>() {
-
 			@Override
 			public int compare(int[] o1, int[] o2) {
 				if(o1[0] == o2[0]) {
@@ -22,22 +21,23 @@ public class bj11286_절대값힙 {
 				else {
 					return o1[0]-o2[0];
 				}
-				
 			}
-			
 		});
 		
 		
 		for (int i = 0; i < t; i++) {
 			int input = Integer.parseInt(br.readLine());
 			
-			
+			//양수 입력
 			if(input > 0) {
 				int temp[] = {input, 1};
 				pq.add(temp);
+			//음수 입력
 			}else if(input < 0) {
 				int temp[] = {Math.abs(input), -1};
 				pq.add(temp);
+			
+			//출력
 			}else {
 				if(pq.isEmpty()) {
 					System.out.println(0);
