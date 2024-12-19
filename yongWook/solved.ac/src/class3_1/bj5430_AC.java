@@ -14,9 +14,7 @@ public class bj5430_AC {
 		
 		//R는 순서뒤집
 		//D는 첫번째수 버림 배열 비였는데 하면 오류
-		
 		int t = Integer.parseInt(br.readLine());
-		
 		for (int i = 0; i < t; i++) {
 			String condition = br.readLine();
 			int nbrCnt = Integer.parseInt(br.readLine());
@@ -25,11 +23,12 @@ public class bj5430_AC {
 			for (int j = 0; j < nbrCnt; j++) {
 				dq.add(inputStr[j]);
 			}
+			
 			boolean error = false;
 			boolean reverseStatus = false; //리버스 상태면 true 
 			for (int j = 0; j < condition.length(); j++) {
 				if(condition.charAt(j) == 'R') {
-					reverseStatus = reverseStatus ? false : true;
+					reverseStatus = !reverseStatus;
 				}else if(condition.charAt(j) == 'D'){
 					try {
 						if(reverseStatus) {
@@ -58,6 +57,8 @@ public class bj5430_AC {
 						sb.append(dq.removeFirst()).append(",");	
 					}
 				}
+				
+				//쉼표제거
 				if(sb.length() >= 2) {
 					sb.delete( sb.length()-1, sb.length());
 				}
