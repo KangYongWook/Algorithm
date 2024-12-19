@@ -38,17 +38,21 @@ public class BJ_1074_Z_1 {
 
             int prevCount = len*len;
 
+            // 1사분면
             if(r < startX + len && c < startY + len) {
                 findArr(len, startX, startY);
             }
+            // 2사분면
             else if(r < startX + len && c < startY + (len*2)) {
                 count += prevCount;
                 findArr(len, startX, startY + len);
             }
+            // 3사분면
             else if(r < startX + (len*2) && c < startY + len) {
                 count += (prevCount*2);
                 findArr(len, startX + len, startY);
             }
+            // 4사분면
             else {
                 count += (prevCount*3);
                 findArr(len, startX + len, startY + len);
@@ -67,23 +71,4 @@ public class BJ_1074_Z_1 {
             }
         }
     }
-
-//    private static void findArr(int len, int startX, int startY) {
-//        if(len > 2) {
-//            len /= 2;
-//
-//            findArr(len, startX, startY);
-//            findArr(len, startX, startY + len);
-//            findArr(len, startX + len, startY);
-//            findArr(len, startX + len, startY + len);
-//        }
-//        else {
-//            for(int i=0; i<mx.length; i++) {
-//                int x = startX + mx[i];
-//                int y = startY + my[i];
-//
-//                zArr[x][y] = count++;
-//            }
-//        }
-//    }
 }

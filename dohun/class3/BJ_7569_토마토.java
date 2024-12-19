@@ -73,9 +73,7 @@ public class BJ_7569_토마토 {
 
             System.out.println(day);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        } catch (Exception e) {}
 
     }
 

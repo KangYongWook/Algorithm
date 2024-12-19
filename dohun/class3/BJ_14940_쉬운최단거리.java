@@ -1,5 +1,6 @@
 package class3;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
@@ -40,10 +41,7 @@ public class BJ_14940_쉬운최단거리 {
                 }
             }
 
-            if(start == null) {
-                System.out.println("2가 존재하지 않음");
-                return;
-            }
+            if(start == null) return;
 
             findPath(start);
 
