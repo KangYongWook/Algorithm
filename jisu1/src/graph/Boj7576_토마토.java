@@ -19,6 +19,7 @@ public class Boj7576_토마토 {
 
         Queue<Pos> que = new LinkedList<>();
 
+        // 안익은토마토= zeroTomato
         int zeroTomato = 0;
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
@@ -41,8 +42,8 @@ public class Boj7576_토마토 {
 
         int[] dx = {-1, 1, 0, 0};
         int[] dy = {0, 0, -1, 1};
-        int day = 0;
-        int round = que.size();
+        int day = 0; // 정답변수
+        int round = que.size(); // 사이클
 
         while (!que.isEmpty()) {
             Pos p = que.poll();

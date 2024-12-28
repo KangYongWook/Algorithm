@@ -60,6 +60,7 @@ public class Boj7569_토마토 {
         if (zeroTomato>0){
 
             // 일자를 세기위한 익은 토마토
+            // round 변수
             int tomatoForDaycount = que.size();
 
             while(!que.isEmpty()) {

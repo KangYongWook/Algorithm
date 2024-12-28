@@ -22,13 +22,16 @@ public class Boj7662_이중우선순위큐 {
                 int n = Integer.parseInt(st.nextToken());
 
                 if (oper=='I') {
+                    //.getOrDefault
                     Integer value = treeMap.get(n);
                     if (value==null){
                         treeMap.put(n,1);
                     } else {
                         treeMap.put(n, value+1);
                     }
-                } else if (oper=='D'){
+                }
+                else if (oper=='D'){
+
                     if (treeMap.isEmpty()) continue;
                     Integer key;
                     if (n==1) {
@@ -37,6 +40,8 @@ public class Boj7662_이중우선순위큐 {
                         key = treeMap.firstKey();
                     }
                     Integer value = treeMap.get(key);
+
+                    //.getOrDefault
                     if (value == 1) {
                         treeMap.remove(key);
                     } else {
