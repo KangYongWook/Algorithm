@@ -30,14 +30,20 @@ public class Boj15654_n과m5 {
         answer = new StringBuilder();
         box = new int[m];
 
-        dfs(box, 0);
+        dfs(0);
 
         System.out.println(answer);
 
     }
 
+    // n과 m 2
+    // 1 2 3 4
+
+    // n과 m 5
+    // 1 7 8 9
+
     // 수열 담을 박스, 박스에 담을 인덱스 및 리턴하기 위한 횟수 체크용
-    private static void dfs(int[] box, int cnt) {
+    private static void dfs(int cnt) {
         if (cnt == m) {
             for (int b : box) {
                 answer.append(b).append(" ");
@@ -50,7 +56,7 @@ public class Boj15654_n과m5 {
             if (!visited[i]) {
                 box[cnt] = numberArr[i];
                 visited[i] = true;
-                dfs(box, cnt + 1);
+                dfs(cnt + 1);
                 visited[i] = false;
             }
         }
