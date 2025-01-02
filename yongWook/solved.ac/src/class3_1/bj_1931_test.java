@@ -2,7 +2,9 @@ package class3_1;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class bj_1931_test {
 	public static void main(String[] args) {
@@ -11,6 +13,10 @@ public class bj_1931_test {
 		
 		int N = in.nextInt();
 		
+		List<Integer> stack = new Stack<>();
+		stack.add(1);
+		stack.add(2);
+		System.out.println(stack.get(0));
 		
 		/*
 		  time[][0] 은 시작시점을 의미 
