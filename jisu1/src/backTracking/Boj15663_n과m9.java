@@ -27,13 +27,12 @@ public class Boj15663_n과m9 {
         for (int i = 0; i < n; i++) {
             numArr[i] = Integer.parseInt(st.nextToken());
         }
-
         Arrays.sort(numArr);
 
         permHashMap = new HashMap<>();
-
         backTracking(0);
 
+        // LinkedHashSet
         String[] convert = new String[permHashMap.size()];
         for (String p : permHashMap.keySet()){
             convert[permHashMap.get(p)] = p;
@@ -52,10 +51,16 @@ public class Boj15663_n과m9 {
             for (int pi : permArr){
                 permSb.append(pi).append(" ");
             }
+            //Arrays.stream(permArr).forEach(p->permSb.append(p).append(" "));
+
+            // StringBuilder로 값을 넣으면 "4 " "4 " 다른값
+            // -> 주소비교
             Integer value = permHashMap.get(permSb.toString());
             if (value == null) {
                 permHashMap.put(permSb.toString(), permHashMap.size());
             }
+            /*LinkedList. stream . distinct */
+
             return;
         }
 
@@ -70,3 +75,18 @@ public class Boj15663_n과m9 {
 
     }
 }
+/*
+11 2 3
+11 2
+11 3
+2 11
+2 3
+3 11
+
+9 1
+9 7
+9 9
+9 1
+9 7
+9 9
+ */
