@@ -1,3 +1,5 @@
+package graph;
+
 import java.util.Scanner;
 
 public class Boj16953_AB2 {
