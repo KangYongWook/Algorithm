@@ -1,21 +1,28 @@
 package class4;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
 =======
+=======
+>>>>>>> 993f58cd7671d0113151f144a4d9dadff9c713a7
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
+<<<<<<< HEAD
+>>>>>>> 993f58cd7671d0113151f144a4d9dadff9c713a7
+=======
 >>>>>>> 993f58cd7671d0113151f144a4d9dadff9c713a7
 import java.util.StringTokenizer;
 
 public class BJ_15663_N과M9 {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 	static boolean visited[];
 	static int N, M;
@@ -23,10 +30,15 @@ public class BJ_15663_N과M9 {
 	static StringBuilder printSb;
 	static int arr[];
 =======
+=======
+>>>>>>> 993f58cd7671d0113151f144a4d9dadff9c713a7
 	static int visited[];
 	static int N, M;
 	static StringBuilder sb;
 	static ArrayList<Integer> arr;
+<<<<<<< HEAD
+>>>>>>> 993f58cd7671d0113151f144a4d9dadff9c713a7
+=======
 >>>>>>> 993f58cd7671d0113151f144a4d9dadff9c713a7
 
 	public static void main(String[] args) throws Exception {
@@ -37,6 +49,7 @@ public class BJ_15663_N과M9 {
 		M = Integer.parseInt(st.nextToken());
 		
 		st = new StringTokenizer(br.readLine());
+<<<<<<< HEAD
 <<<<<<< HEAD
 		arr = new int[N];
 		for (int i = 0; i < N; i++) {
@@ -51,6 +64,8 @@ public class BJ_15663_N과M9 {
 		
 		System.out.println(printSb);
 =======
+=======
+>>>>>>> 993f58cd7671d0113151f144a4d9dadff9c713a7
 		arr = new ArrayList<Integer>();
 		for (int i = 0; i < N; i++) {
 			arr.add(Integer.parseInt(st.nextToken()));
@@ -62,6 +77,9 @@ public class BJ_15663_N과M9 {
 
 		dfs(0);
 		
+<<<<<<< HEAD
+>>>>>>> 993f58cd7671d0113151f144a4d9dadff9c713a7
+=======
 >>>>>>> 993f58cd7671d0113151f144a4d9dadff9c713a7
 	}
 
@@ -69,6 +87,7 @@ public class BJ_15663_N과M9 {
 
 		if (depth == M) { // 고를수 있는수
 			if (sb.length() > 0) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 				if(!printSb.toString().contains(sb.toString())) {
 					printSb.append(sb).append("\n");
@@ -92,6 +111,8 @@ public class BJ_15663_N과M9 {
 			
 
 =======
+=======
+>>>>>>> 993f58cd7671d0113151f144a4d9dadff9c713a7
 					System.out.println(sb);
 				return;
 			}
@@ -110,6 +131,9 @@ public class BJ_15663_N과M9 {
 				}
 				visited[i]--;
 		}
+<<<<<<< HEAD
+>>>>>>> 993f58cd7671d0113151f144a4d9dadff9c713a7
+=======
 >>>>>>> 993f58cd7671d0113151f144a4d9dadff9c713a7
 	}
 }
