@@ -29,21 +29,21 @@ public class BJ_1149_RGB거리 {
 		dp[0][2] = map[0][2];
 		for (int i = 1; i < N; i++) {
 			for (int j = 0; j < 3; j++) {
-				if(j == 0) {
+				if(j == 0) { //R
 					if(dp[i-1][j+1] < dp[i-1][j+2]) {
 						dp[i][j] = map[i][j] + dp[i-1][j+1];
 					}
 					else {
 						dp[i][j] = map[i][j] + dp[i-1][j+2];
 					}
-				}else if( j == 1) {
+				}else if( j == 1) { //G
 					if(dp[i-1][j-1] < dp[i-1][j+1]) {
 						dp[i][j] = map[i][j] + dp[i-1][j-1];
 					}
 					else {
 						dp[i][j] = map[i][j] + dp[i-1][j+1];
 					}
-				}else {
+				}else { //B
 					if(dp[i-1][j-1] < dp[i-1][j-2]) {
 						dp[i][j] = map[i][j] + dp[i-1][j-1];
 					}
@@ -55,12 +55,12 @@ public class BJ_1149_RGB거리 {
 		}
 		
 		
-//		for (int i = 0; i < N; i++) {
-//			for (int j = 0; j < N; j++) {
-//				System.out.print( dp[i][j] + " " );
-//			}
-//			System.out.println();
-//		}
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
+				System.out.print( dp[i][j] + " " );
+			}
+			System.out.println();
+		}
 		
 		
 		int result = Integer.MAX_VALUE;

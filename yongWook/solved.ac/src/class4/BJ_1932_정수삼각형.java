@@ -36,12 +36,20 @@ public class BJ_1932_Á¤¼ö»ï°¢Çü {
 			}
 		}
 		
-//		for (int i = 0; i < N; i++) {
-//			for (int j = 0; j < N; j++) {
-//				System.out.print( dp[i][j] + " " );
-//			}
-//			System.out.println();
-//		}
+//		5
+//		7
+//		3 8
+//		8 1 0
+//		2 7 4 4
+//		4 5 2 6 5
+		
+		
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
+				System.out.print( dp[i][j] + " " );
+			}
+			System.out.println();
+		}
 		
 		int result = 0;
 		for (int i = 0; i < N; i++) {
