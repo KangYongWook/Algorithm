@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class bj1003_피보나치함수 {
+public class bj1003_피보나치함수{
 	
 	static int arr[];
 	public static void main(String[] args) throws NumberFormatException, IOException {
