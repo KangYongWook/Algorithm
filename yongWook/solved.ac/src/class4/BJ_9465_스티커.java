@@ -32,7 +32,9 @@ public class BJ_9465_스티커 {
 			int dp[][] = new int[2][row];
 			dp[0][0] = sticker[0][0];
 			dp[1][0] = sticker[1][0];
-				
+			
+			//각 표에 숫자를 매겨 모든 경우의 수 검토결과
+			//내 좌표기준 대각선, 대각선+오른쪽 의 맥스값을 자기 자신과 더하면 됨.
 			for (int k = 1; k < row; k++) {
 				if( k == 1) {
 					dp[0][k] = dp[1][k-1] + sticker[0][k];
