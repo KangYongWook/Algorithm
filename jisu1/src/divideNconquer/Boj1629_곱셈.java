@@ -1,3 +1,5 @@
+package divideNconquer;
+
 import java.util.Scanner;
 
 public class Boj1629_곱셈 {
