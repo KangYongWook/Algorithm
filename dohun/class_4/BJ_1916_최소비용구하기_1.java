@@ -1,4 +1,4 @@
-package class4;
+package class_4;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

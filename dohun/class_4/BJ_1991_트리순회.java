@@ -1,4 +1,4 @@
-package class4;
+package class_4;
 
 import org.w3c.dom.Node;
 
