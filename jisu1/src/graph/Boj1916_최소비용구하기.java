@@ -68,16 +68,17 @@ public class Boj1916_최소비용구하기 {
         }
         return shortest[arrive];
     }
-}
 
-class Route {
-    int arrive;
-    int cost;
+    static class Route {
+        int arrive;
+        int cost;
 
-    public Route(int arrive, int cost) {
-        this.arrive = arrive;
-        this.cost = cost;
+        public Route(int arrive, int cost) {
+            this.arrive = arrive;
+            this.cost = cost;
+        }
     }
+
 }
 /*
 5
