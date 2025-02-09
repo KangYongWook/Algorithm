@@ -57,6 +57,7 @@ public class BJ_11660_구간합구하기5 {
 //		
 //		System.out.println();
 		//출력
+		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < sumCnt; i++) {
 			int x1 = coordinate[i][0]-1;
 			int y1 = coordinate[i][1]-1;
@@ -73,8 +74,9 @@ public class BJ_11660_구간합구하기5 {
 			if(x1 != 0 && y1 != 0) {
 				result += cumulativeSum[x1-1][y1-1]; //겹치는 부분
 			}
-			System.out.println(result);
+			sb.append(result).append("\n");
+			//System.out.println(result);
 		}
-		
+		System.out.println(sb.toString());
 	}
 }
