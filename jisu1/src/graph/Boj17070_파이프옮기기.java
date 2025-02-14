@@ -31,6 +31,7 @@ public class Boj17070_파이프옮기기 {
         Queue<Pipe> que = new LinkedList<>();
         que.add(new Pipe(0, 0, 1));
 
+        // bfs 방식으로 풀기
         while (!que.isEmpty()) {
             Pipe curr = que.poll();
             dp[curr.x][curr.y]++;
