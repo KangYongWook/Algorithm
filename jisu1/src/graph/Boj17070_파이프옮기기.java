@@ -35,6 +35,7 @@ public class Boj17070_파이프옮기기 {
         while (!que.isEmpty()) {
             Pipe curr = que.poll();
             dp[curr.x][curr.y]++;
+
             if (curr.direction == 0) {
                 // 가로
                 if (curr.y + 1 < n && wall[curr.x][curr.y + 1] == 0) {

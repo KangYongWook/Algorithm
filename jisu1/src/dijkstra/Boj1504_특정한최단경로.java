@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
 public class Boj1504_특정한최단경로 {
     static LinkedList<Node>[] graph;
     static int n;
-    static int INF = 2000000;
+    static int INF = 2000000; // 800*2*1,000 = 1600000
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
