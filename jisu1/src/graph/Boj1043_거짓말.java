@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import java.util.StringTokenizer;
 
 public class Boj1043_거짓말 {
-    static LinkedList<Integer> knownList;
     static int[] root;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -16,7 +16,7 @@ public class Boj1043_거짓말 {
         int m = Integer.parseInt(st.nextToken());
 
         // union-find를 위해 루트노드
-        root = new int[n+1];
+        root = new int[n + 1];
         for (int i = 1; i <= n; i++) {
             root[i] = i;
         }
@@ -28,10 +28,10 @@ public class Boj1043_거짓말 {
             return;
         }
 
-        knownList = new LinkedList<>();
         for (int i = 0; i < knownCnt; i++) {
             int know = Integer.parseInt(st.nextToken());
-            knownList.add(know);
+
+            root[know] = 0;
         }
 
         LinkedList<Integer>[] partyList = new LinkedList[m];
@@ -48,18 +48,18 @@ public class Boj1043_거짓말 {
                 int member = Integer.parseInt(st.nextToken());
                 partyList[i].add(member);
 
-                if (j>=1) {
+                if (j >= 1) {
                     union(prevMem, member);
                 }
                 prevMem = member;
             }
         }
 
-        int answer = 0 ;
+        int answer = 0;
         for (LinkedList<Integer> party : partyList) {
             boolean knownFlag = false;
             for (int member : party) {
-                if (knownList.contains(find(member))) {
+                if (find(member) == 0) {
                     knownFlag = true;
                     break;
                 }
@@ -74,7 +74,7 @@ public class Boj1043_거짓말 {
     }
 
     static int find(int x) {
-        if (root[x]==x) return x;
+        if (root[x] == x) return x;
         return find(root[x]);
     }
 
@@ -83,12 +83,10 @@ public class Boj1043_거짓말 {
         int ry = find(y);
 
         // rx-ry 자리바꿈
-        if (knownList.contains(ry)) {
-            int tmp = rx;
-            rx = ry;
-            ry = tmp;
+        if (ry == 0) {
+            root[rx] = ry;
+        } else {
+            root[ry] = rx;
         }
-
-        root[ry] = rx;
     }
 }

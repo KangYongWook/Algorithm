@@ -1,3 +1,5 @@
+package graph;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,29 +19,27 @@ public class Boj1967_트리의지름 {
             graph[i] = new LinkedList<>();
         }
 
-//        int weight = 0;
-//        int startNode = 0;
         for (int i = 0; i < n - 1; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
             int p = Integer.parseInt(st.nextToken());
             int c = Integer.parseInt(st.nextToken());
             int w = Integer.parseInt(st.nextToken());
 
+            // 무방향그래프
             graph[p].add(new Node(c, w));
             graph[c].add(new Node(p, w));
-
-//            if (weight < w) {
-//                weight = w;
-//                startNode = c;
-//            }
         }
 
+        // 루트 노드에서 가장 거리가 먼 노드 찾기
+        // startNode 찾기
         visited = new boolean[n+1];
-        dfs(1,0);
+        dfs(2,0);
 
+        // 정답찾기
         answer =  0;
         visited = new boolean[n+1];
         dfs(startNode, 0);
+//        = dfs(9, 0);
         System.out.println(answer);
 
     }
