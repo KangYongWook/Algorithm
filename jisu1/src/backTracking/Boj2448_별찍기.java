@@ -1,3 +1,5 @@
+package backTracking;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -8,40 +10,18 @@ public class Boj2448_별찍기 {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
 
-        int col = (n/3)*5+((n/3)-1);
+        int col = (n/3)*5+((n/3)-1); // n=12일경우 ==> (col=23)
 //        System.out.println(col);
         star = new char[n][col];
         for (int i = 0; i < n; i++) {
             Arrays.fill(star[i],' ');
         }
 
-        int drawRow = 0;
-        int drawCol = col/2;
-//        drawArray(drawRow, drawCol/2);
+//        test(); // 1단계 : 3,6 성공 12 실패
+//        drawArray(0, col/2); // 2단계 : 3,6,12 성공 24 실패
         recursive(0, col/2,n);
         print();
 
-    }
-
-    static void drawArray(int drawRow, int drawCol) {
-        for (int i = 0; i < n/3; i++) {
-            draw(drawRow,drawCol); // 11/2 = 5
-            int next = 6;
-            if (i%4==1){
-//                System.out.println(i);
-                draw(drawRow,drawCol+(next*1));
-            } else if (i%4==2){
-                draw(drawRow,drawCol+(next*2));
-            } else if (i%4==3) {
-                draw(drawRow,drawCol+(next*1));
-                draw(drawRow,drawCol+(next*2));
-                draw(drawRow,drawCol+(next*3));
-            }
-
-            drawRow +=3;
-            drawCol -=3;
-        }
-        print();
     }
 
     static void recursive(int row, int col, int n) {
@@ -76,6 +56,27 @@ public class Boj2448_별찍기 {
             drawStar.append("\n");
         }
         System.out.print(drawStar);
+    }
+
+    static void drawArray(int drawRow, int drawCol) {
+        for (int i = 0; i < n/3; i++) {
+            draw(drawRow,drawCol); // 11/2 = 5
+            int next = 6;
+            if (i%4==1){
+//                System.out.println(i);
+                draw(drawRow,drawCol+(next*1));
+            } else if (i%4==2){
+                draw(drawRow,drawCol+(next*2));
+            } else if (i%4==3) {
+                draw(drawRow,drawCol+(next*1));
+                draw(drawRow,drawCol+(next*2));
+                draw(drawRow,drawCol+(next*3));
+            }
+
+            drawRow +=3;
+            drawCol -=3;
+        }
+        print();
     }
 
     static void test() {

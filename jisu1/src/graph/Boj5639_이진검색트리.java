@@ -1,3 +1,5 @@
+package graph;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -49,7 +51,7 @@ public class Boj5639_이진검색트리 {
         }
 
         void add(int num) {
-            if (this.num == 0) {
+            if (this.num == 0) { // 양의 정수로 들어온다고 했음
                 this.num = num;
                 this.left = null;
                 this.right = null;
