@@ -7,8 +7,8 @@ import java.io.InputStreamReader;
 public class Boj9935_문자열폭발 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String str = br.readLine();
-        String bomb = br.readLine();
+        String str = br.readLine(); //"addsd4"
+        String bomb = br.readLine(); // "C4"
         int len = bomb.length();
 
         StringBuilder sb = new StringBuilder();

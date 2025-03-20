@@ -15,9 +15,7 @@ public class Boj9663_NQUEEN {
 
         // queen 하나를 놓으면 수직, 수평, 대각선에 놓을 수 없음...
         chess = new int[n];
-
         dfs(0);
-
         System.out.println(answer);
 
     }
@@ -25,8 +23,6 @@ public class Boj9663_NQUEEN {
     static void dfs(int depth) {
         if (depth == n) {
             answer++;
-            Arrays.stream(chess).forEach(c-> System.out.print(c+" "));
-            System.out.println();
             return;
         }
         for (int i = 0; i < n; i++) {
@@ -34,19 +30,6 @@ public class Boj9663_NQUEEN {
            if (possible(depth)){
                dfs(depth+1);
            }
-        }
-    }
-
-    static void mydfs(int depth) {
-        if (depth == n) {
-            answer++;
-            return;
-        }
-        for (int i = 0; i < n; i++) {
-            chess[depth] = i;
-            if (possible(depth)){
-                dfs(depth+1);
-            }
         }
     }
 
@@ -62,6 +45,19 @@ public class Boj9663_NQUEEN {
             }
         }
         return true;
+    }
+
+    static void mydfs(int depth) {
+        if (depth == n) {
+            answer++;
+            return;
+        }
+        for (int i = 0; i < n; i++) {
+            chess[depth] = i;
+            if (possible(depth)){
+                dfs(depth+1);
+            }
+        }
     }
 
 //    static void change(int r, int c, boolean state) {
