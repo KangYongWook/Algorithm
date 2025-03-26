@@ -1,3 +1,5 @@
+package divideNconquer;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -33,7 +35,7 @@ public class Boj10830_행렬제곱 {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 // 80% 실패 이유
-                sb.append(answer[i][j]%1000).append(" ");
+                sb.append(answer[i][j] % mod).append(" ");
             }
             sb.append("\n");
         }
