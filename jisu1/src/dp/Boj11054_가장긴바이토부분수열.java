@@ -1,10 +1,9 @@
+package dp;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Boj11054_가장긴바이토부분수열 {
     public static void main(String[] args) throws IOException {
@@ -18,7 +17,6 @@ public class Boj11054_가장긴바이토부분수열 {
         }
 
         int[] upDp = new int[n]; // 상승 수열
-        int[] downDp = new int[n]; // 하강 수열
         for (int i = 0; i < n; i++) {
             upDp[i] = 1;
             for (int j = i - 1; j >= 0; j--) {
@@ -28,6 +26,7 @@ public class Boj11054_가장긴바이토부분수열 {
             }
         }
 
+        int[] downDp = new int[n]; // 하강 수열
         for (int i = n-1; i >= 0; i--) {
             downDp[i] = 1;
             for (int j = i + 1; j < n; j++) {
