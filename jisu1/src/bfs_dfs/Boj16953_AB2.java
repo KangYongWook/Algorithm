@@ -1,4 +1,4 @@
-package graph;
+package bfs_dfs;
 
 import java.util.Scanner;
 

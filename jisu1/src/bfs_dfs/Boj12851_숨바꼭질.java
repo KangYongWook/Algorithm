@@ -1,3 +1,5 @@
+package bfs_dfs;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -44,7 +46,6 @@ public class Boj12851_숨바꼭질 {
 
             // 한 라운드(같은 초)에 있는 것들이 끝남...
             round++;
-
         }
 
         System.out.println(time);

@@ -1,18 +1,21 @@
+package bfs_dfs;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.StringTokenizer;
+import java.util.*;
 
-public class Boj14502_바이러스 {
+public class Boj14502_연구실2 {
 
-    static int n,m;
+    static int n, m , answer;
     static int[][] lab;
     static int[][] viruslab;
-    static int answer;
-    static int[] dx = {-1,1,0,0};
-    static int[] dy = {0,0,-1,1};
+    static int[] dx = {-1, 1, 0, 0};
+    static int[] dy = {0, 0, -1, 1};
+    static Pos[] combi = new Pos[3];
+    static ArrayList<Pos> virusList = new ArrayList<>();
+    static ArrayList<Pos> wallList = new ArrayList<>();
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -26,34 +29,37 @@ public class Boj14502_바이러스 {
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < m; j++) {
                 lab[i][j] = Integer.parseInt(st.nextToken());
+
+                if (lab[i][j] == 0) {
+                    wallList.add(new Pos(i, j));
+                } else if (lab[i][j] == 2) {
+                    virusList.add(new Pos(i, j));
+                }
+
             }
         }
 
-        // 1. 3개의 벽을 선택하고
         // 0 빈칸 1 벽 2 바이러스
-        setWall(0);
-
-        // 2. 안전영역 구하기
+        makeWallCombi(0, 0);
 
         System.out.println(answer);
 
     }
 
-    static void setWall(int count) {
-        if (count == 3) {
+    static void makeWallCombi(int index, int start) {
+        // 1. 3개의 벽을 선택하고
+        if (index == 3) {
+            // 2. 바이러스 퍼짐
             spreadVirus();
+
+            // 3. 안전영역 구하기
             answer = Math.max(answer,countSafeArea());
             return;
         }
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                if (lab[i][j] == 0) {
-                    lab[i][j] = 1;
-                    setWall(count+1);
-                    lab[i][j] = 0;
-                }
-            }
+        for (int i = start; i < wallList.size(); i++) {
+            combi[index] = wallList.get(i);
+            makeWallCombi(index + 1, i + 1);
         }
     }
 
@@ -62,16 +68,16 @@ public class Boj14502_바이러스 {
             viruslab[i] = lab[i].clone();
         }
 
-        Queue<Pos> que = new LinkedList<>();
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                if (viruslab[i][j] == 2) {
-                    que.add(new Pos(i, j));
-                }
-            }
+        for (Pos wall : combi) {
+            viruslab[wall.x][wall.y] = 1;
         }
 
-        while(!que.isEmpty()) {
+        Queue<Pos> que = new LinkedList<>();
+        for (Pos vi : virusList) {
+            que.add(vi);
+        }
+
+        while (!que.isEmpty()) {
             Pos virus = que.poll();
             viruslab[virus.x][virus.y] = 2;
             for (int i = 0; i < 4; i++) {
@@ -79,13 +85,11 @@ public class Boj14502_바이러스 {
                 int yi = virus.y + dy[i];
 
                 if (xi >= 0 && xi < n && yi >= 0 && yi < m
-                        && viruslab[xi][yi]==0) {
-                    que.add(new Pos(xi,yi));
+                        && viruslab[xi][yi] == 0) {
+                    que.add(new Pos(xi, yi));
                 }
             }
         }
-
-
     }
 
     static int countSafeArea() {
@@ -99,7 +103,6 @@ public class Boj14502_바이러스 {
             }
         }
 
-        System.out.println(safeArea);
         return safeArea;
     }
 
@@ -113,3 +116,11 @@ public class Boj14502_바이러스 {
         }
     }
 }
+
+/*
+4 4
+2 1 0 0
+1 0 0 0
+0 0 0 1
+0 0 1 2
+ */
