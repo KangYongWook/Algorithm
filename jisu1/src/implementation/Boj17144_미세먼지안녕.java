@@ -1,3 +1,5 @@
+package implementation;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -26,6 +28,7 @@ public class Boj17144_미세먼지안녕 {
         for (int i = 0; i < r; i++) {
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < c; j++) {
+                // 방에 있는 미세먼지
                 room[i][j] = Integer.parseInt(st.nextToken());
 
                 // 공기청정기
@@ -120,8 +123,11 @@ public class Boj17144_미세먼지안녕 {
 
     static void spread() {
         for (Pos dust : dustList) {
+            // 기존 방에 있는 미세먼지로 확산되어질 수 있는 미세먼지 값 구하기
             int amount = dust.amount / 5;
             if (amount == 0) continue;
+
+            // 4방향으로 다 갈 수 없음 , 벽 있거나 공기청정기가 있거나
             for (int j = 0; j < 4; j++) {
                 int xi = dust.r + dx[j];
                 int yi = dust.c + dy[j];
