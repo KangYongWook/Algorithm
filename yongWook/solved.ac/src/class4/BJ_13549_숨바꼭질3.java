@@ -12,10 +12,11 @@ public class BJ_13549_숨바꼭질3 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		PriorityQueue<Point> q = new PriorityQueue<Point>();
+		
+		PriorityQueue<Point> q = new PriorityQueue<>((x, y) -> x.depth - y.depth);
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		boolean[] memo = new boolean[2000000]; //메모리 초과로인한 메모이제이션 추가
-		int[] depthMemo = new int[2000000]; //메모리 초과로인한 메모이제이션 추가
+		int[] depthMemo = new int[2000000]; //메모리 초과로인한 메모이제이션 추가 --> 어차피 정렬하기때문에 제거해도되긴함. 
 		
 		int n = Integer.parseInt(st.nextToken());
 		int k = Integer.parseInt(st.nextToken());
@@ -40,7 +41,7 @@ public class BJ_13549_숨바꼭질3 {
 			//조건1
 			int tempX = point.x -1;
 			int depth = point.depth + 1  ;
-			if( tempX >= 0 && (!memo[tempX] || (memo[tempX] && depthMemo[tempX] > depth ))) { //도착지점보다 초과한값이 -1할때말고는 필요없어 해당 조건 부여.
+			if( tempX >= 0 && (!memo[tempX] || (memo[tempX] && depthMemo[tempX] > depth ))) { //방문을 안했거나, 방문했어도 depth가 내가 더 작으면 q에 넣음.
 				memo[tempX] = true;
 				depthMemo[tempX] = depth;
 				q.add(new Point(tempX, depth));
@@ -71,7 +72,7 @@ public class BJ_13549_숨바꼭질3 {
 	
 	
 
-	static class Point implements Comparable<Point>{
+	static class Point {
 		
 		int x;
 		int depth;
@@ -81,11 +82,6 @@ public class BJ_13549_숨바꼭질3 {
 			this.depth = depth;
 		}
 
-		@Override
-		public int compareTo(Point o) {
-			return (this.depth > o.depth ? 1 : -1);
-		}
-		
 		
 	}
 }
