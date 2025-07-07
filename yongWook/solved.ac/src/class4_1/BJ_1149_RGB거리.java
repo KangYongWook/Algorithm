@@ -12,7 +12,7 @@ public class BJ_1149_RGB거리 {
 		
 		int N = Integer.parseInt(br.readLine());
 		int arr[][] = new int[N][3];
-		int dp[] = new int[N];
+		int dp[][] = new int[N][3];
 		StringTokenizer st;
 		
 		for (int i = 0; i < N; i++) {
@@ -24,31 +24,38 @@ public class BJ_1149_RGB거리 {
 		
 		
 		//dp
-		for (int i = 0; i < 3; i++) {
-			dp[0]
-		}
-		
-		for (int i = 0; i < N; i++) {
+		dp[0][0] =  arr[0][0];
+		dp[0][1] =	arr[0][1];
+		dp[0][2] =	arr[0][2];
+		for (int i = 1; i < N; i++) {
 			for (int j = 0; j < 3; j++) {
-				
-					if(j == 0) {
-						dp[i] = Math.min( arr[i][j] + arr[i+1][j+1], arr[i][j] + arr[i+1][j+2] );
-					}
-					else if(j == 1) {
-						dp[i] = Math.min( arr[i][j] + arr[i+1][j-1], arr[i][j] + arr[i+1][j+1] );
-					}
-					else {
-						dp[i] = Math.min( arr[i][j] + arr[i+1][j-1], arr[i][j] + arr[i+1][j-2] );
-					}
+				if(j == 0) {
+					dp[i][j] = Math.min( dp[i-1][j+1] + arr[i][j], dp[i-1][j+2] + arr[i][j] );
+				}
+				else if(j == 1) {
+					dp[i][j] = Math.min( dp[i-1][j+1] + arr[i][j], dp[i-1][j-1] + arr[i][j] );
+				}
+				else{
+					dp[i][j] = Math.min( dp[i-1][j-1] + arr[i][j], dp[i-1][j-2] + arr[i][j] );
+				}
 			}
 		}
-				
-		System.out.println(dp[N-1]);
 		
+		//dp log
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < 3; j++) {
+				System.out.print(dp[i][j]+ " " );
+			}
+			System.out.println();
+		}
 		
+		int minNumber = Integer.MAX_VALUE;
+		for (int i = 0; i < 3; i++) {
+			if(dp[N-1][i] < minNumber) {
+				minNumber = dp[N-1][i]; 
+			}
+		}
 		
-		
-		
-		
+		System.out.println(minNumber);
 	}
 }
