@@ -22,6 +22,7 @@ public class Boj11444_피보나치수열6 {
     }
 
     public static long fibo(long n) {
+        // 시간초과
         if (map.get(n) != null) {
             return map.get(n);
         }
